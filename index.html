@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="icon" type="svg" href="img/superhero.svg" />
+    <title>Superhero search</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -13,53 +14,27 @@
   </head>
   <body class="container h-100 bg-dark">
     <div id="hero">
-      <div>
-        <label>
-          <input
-            type="text"
-            placeholder="Search for a superhero"
-            v-model="query"
-          />
-        </label>
-        <button v-on:keyup.enter="submit">Search</button>
-      </div>
+      <input type="text" placeholder="Search" v-model="name" />
+      <button v-on:click="getSuperhero">find</button>
 
-      <ul>
-        <li>{{results}}</li>
-      </ul>
+      <div class="card" style="width: 18rem;" v-for="item in superhero.results">
+        <div class="card-body">
+          <h5 class="card-title">{{item.name}}</h5>
+          <!-- <p class="card-text">Alias: {{item.biography.aliases}}</p>
+          <img
+            class="card-img-top"
+            v-bind:src="item.image.url"
+            alt="Picture not found"
+          /> -->
+          <button v-on:click="modal =!modal">More info</button>
+          <div v-if="modal">
+            <h2>test i modalbox</h2>
+            <button v-on:click="modal =!modal">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!---------- <div class="card" style="width: 18rem;">
-          <div class="card" style="width: 18rem;" v-for="result in results"> 
-  <img src="..." class="card-img-top" alt="..." /> 
-     <div class="card-body">
-          <h5 class="card-title">{{results.name}}</h5>
-          <p class="card-text"></p>
-        
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- <div class="card" style="widows: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">{{comics.image}}</h5>
-        <p class="card-text">{{characters.body}}</p> 
-        </div>
-      </div> -->
-
-    <!-- {{message}} -->
-    <!-- "Data provided by Marvel. © 2014 Marvel" -->
-    <!-- <ul class="card" id="demo">
-      <li v-repeat="items">
-        {{$index}} -
-      </li>
-    </ul> -->
-
-    <!-- <div v-if>
-      <h1>superhero not found</h1>
-     -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="src/script.js"></script>
   </body>
