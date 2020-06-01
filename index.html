@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="container h-100 bg-dark">
+    <div id="hero">
+      <div>
+        <label>
+          <input
+            type="text"
+            placeholder="Search for a superhero"
+            v-model="query"
+          />
+        </label>
+        <button v-on:keyup.enter="submit">Search</button>
+      </div>
+
+      <ul>
+        <li>{{results}}</li>
+      </ul>
+    </div>
+
+    <!---------- <div class="card" style="width: 18rem;">
+          <div class="card" style="width: 18rem;" v-for="result in results"> 
+  <img src="..." class="card-img-top" alt="..." /> 
+     <div class="card-body">
+          <h5 class="card-title">{{results.name}}</h5>
+          <p class="card-text"></p>
+        
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- <div class="card" style="widows: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{comics.image}}</h5>
+        <p class="card-text">{{characters.body}}</p> 
+        </div>
+      </div> -->
+
+    <!-- {{message}} -->
+    <!-- "Data provided by Marvel. © 2014 Marvel" -->
+    <!-- <ul class="card" id="demo">
+      <li v-repeat="items">
+        {{$index}} -
+      </li>
+    </ul> -->
+
+    <!-- <div v-if>
+      <h1>superhero not found</h1>
+     -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="src/script.js"></script>
+  </body>
+</html>
