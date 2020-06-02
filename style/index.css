@@ -1,0 +1,14 @@
+.card-img-top {
+  width: 50%;
+}
+
+.container {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px red solid;
+}
+/*# sourceMappingURL=index.css.map */

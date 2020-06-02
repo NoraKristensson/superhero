@@ -11,31 +11,61 @@
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
       crossorigin="anonymous"
     />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/sketchy/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-NkI/Nlr1DZ5rUXWWdnuZb97FQRgCCcwC66DC+HUCY0oVx6BgBHUfPcwL1vwp93JZ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style/index.css" />
   </head>
   <body class="container h-100 bg-dark">
     <div id="hero">
-      <input type="text" placeholder="Search" v-model="name" />
-      <button v-on:click="getSuperhero">find</button>
+      <div class="form-group">
+        <label class="col-form-label col-form-label-lg" for="inputLarge"
+          ><h1>Superhero</h1></label
+        >
+        <input
+          class="form-control form-control-lg"
+          type="text"
+          placeholder="Search...."
+          id="inputLarge"
+          v-model="name"
+        />
 
+        <!-- <input type="text" placeholder="Search" v-model="name"  /> -->
+        <button
+          v-on:click="getSuperhero('{item.id}')"
+          type="button"
+          class="btn btn-warning"
+        >
+          find
+        </button>
+      </div>
       <div class="card" style="width: 18rem;" v-for="item in superhero.results">
         <div class="card-body">
           <h5 class="card-title">{{item.name}}</h5>
-          <button v-on:click="modal =!modal">More info</button>
-          <div v-if="modal">
-            <h2>test i modalbox</h2>
-            <p class="card-text">Alias: {{item.biography.aliases}}</p>
-            <img
-              class="card-img-top"
-              v-bind:src="item.image.url"
-              alt="Picture not found"
-            />
-
-            <button v-on:click="modal =!modal">Close</button>
-          </div>
+          <img
+            class="card-img-top"
+            v-bind:src="item.image.url"
+            alt="Picture not found"
+          />
+          <button v-on:click="getMoreInfo(item.id)">More info</button>
         </div>
       </div>
-    </div>
 
+      <div v-if="modal">
+        <h2>test i modalbox</h2>
+        <p>{{character.name}}</p>
+        <p>{{character.id}}</p>
+
+        <p class="card-text">{{character.aliases}}</p>
+
+        <button v-on:click="getMoreInfo()">Close</button>
+      </div>
+
+      <!-- --------test från melody -->
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="src/script.js"></script>
   </body>

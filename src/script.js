@@ -4,6 +4,7 @@ const App = new Vue({
     name: "",
     superhero: [],
     modal: false,
+    character: [],
   },
 
   methods: {
@@ -16,14 +17,25 @@ const App = new Vue({
           this.superhero = data;
         });
     },
-    getMoreInfo() {
+
+    getMoreInfo(charachter) {
       fetch(
-        `https://www.superheroapi.com/api.php/10156900756796046/search/${this.name}`
+        `https://www.superheroapi.com/api.php/10156900756796046/${charachter}/biography/`
       )
         .then((response) => response.json())
         .then((data) => {
-          this.superhero = data;
+          this.character = data;
         });
+      if (this.modal == false) {
+        this.modal = true;
+      } else {
+        this.modal = false;
+      }
     },
+    // removeItem(itemId) {
+    //   this.items = this.items.filter((obj) => {
+    //     return (obj.id = itemId);
+    //   });
+    // },
   },
 });

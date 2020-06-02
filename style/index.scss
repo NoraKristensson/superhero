@@ -1,0 +1,19 @@
+@mixin flex($justify, $align) {
+  justify-content: $justify;
+  align-items: $align;
+  display: flex;
+}
+
+@mixin just($justify) {
+  justify-content: $justify;
+  display: flex;
+}
+
+.card-img-top {
+  width: 50%;
+}
+
+.container {
+  @include just(center);
+  border: 1px red solid;
+}
