@@ -20,15 +20,16 @@
       <div class="card" style="width: 18rem;" v-for="item in superhero.results">
         <div class="card-body">
           <h5 class="card-title">{{item.name}}</h5>
-          <!-- <p class="card-text">Alias: {{item.biography.aliases}}</p>
-          <img
-            class="card-img-top"
-            v-bind:src="item.image.url"
-            alt="Picture not found"
-          /> -->
           <button v-on:click="modal =!modal">More info</button>
           <div v-if="modal">
             <h2>test i modalbox</h2>
+            <p class="card-text">Alias: {{item.biography.aliases}}</p>
+            <img
+              class="card-img-top"
+              v-bind:src="item.image.url"
+              alt="Picture not found"
+            />
+
             <button v-on:click="modal =!modal">Close</button>
           </div>
         </div>
