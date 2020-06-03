@@ -11,7 +11,6 @@
 
 body {
   margin: auto;
-  border: pink 1 solid;
 }
 
 .card-img-top {
@@ -20,7 +19,8 @@ body {
 
 .container-xl {
   //   @include just(center);
-  background-color: #28a745;
+  //   background-color: #2ec4b6;
+  background-color: #d0fcb3;
   margin: 50px auto;
 }
 
@@ -59,11 +59,34 @@ input {
   transform: scale(1.1);
 }
 
+.card-body {
+  @include flex(space-around, center);
+  flex-direction: column;
+}
+
 .card-img-top {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 70%;
+}
+.alignment {
+  text-align: center;
+  letter-spacing: 2px;
+}
+.alignment--good {
+  background-color: #c3e6cb;
+  border: solid 1px #8fd19e;
+}
+
+.alignment--bad {
+  background-color: #f5c6cb;
+  border: solid 1px #ed969e;
+}
+
+.alignment--neutral {
+  background-color: #ffeeba;
+  border: solid 1px #ffdf7e;
 }
 
 .modal-header,
@@ -71,6 +94,10 @@ input {
   border: none;
 
   @include just(center);
+}
+
+h6 {
+  text-decoration: underline;
 }
 
 // @include media-breakpoint-down(xs) { ... }

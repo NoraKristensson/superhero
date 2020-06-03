@@ -20,7 +20,7 @@ const App = new Vue({
 
     getMoreInfo(charachter) {
       fetch(
-        `https://www.superheroapi.com/api.php/10156900756796046/${charachter}/biography/`
+        `https://www.superheroapi.com/api.php/10156900756796046/${charachter}/biography`
       )
         .then((response) => response.json())
         .then((data) => {
@@ -32,10 +32,14 @@ const App = new Vue({
         this.modal = false;
       }
     },
-    // removeItem(itemId) {
-    //   this.items = this.items.filter((obj) => {
-    //     return (obj.id = itemId);
-    //   });
+    // goodOrBad() {
+    //   if (character.alignment == "good") {
+    //     document.getElementById("alignment").style.backgroundColor = "green";
+    //   } else if (character.alignment == "bad") {
+    //     document.getElementById("alignment").style.backgroundColor = "red";
+    //   } else {
+    //     document.getElementById("alignment").style.backgroundColor = "yellow";
+    //   }
     // },
   },
 });

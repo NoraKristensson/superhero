@@ -1,6 +1,5 @@
 body {
   margin: auto;
-  border: pink 1 solid;
 }
 
 .card-img-top {
@@ -8,7 +7,7 @@ body {
 }
 
 .container-xl {
-  background-color: #28a745;
+  background-color: #d0fcb3;
   margin: 50px auto;
 }
 
@@ -72,11 +71,46 @@ input {
           transform: scale(1.1);
 }
 
+.card-body {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .card-img-top {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 70%;
+}
+
+.alignment {
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.alignment--good {
+  background-color: #c3e6cb;
+  border: solid 1px #8fd19e;
+}
+
+.alignment--bad {
+  background-color: #f5c6cb;
+  border: solid 1px #ed969e;
+}
+
+.alignment--neutral {
+  background-color: #ffeeba;
+  border: solid 1px #ffdf7e;
 }
 
 .modal-header,
@@ -88,5 +122,9 @@ input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+h6 {
+  text-decoration: underline;
 }
 /*# sourceMappingURL=index.css.map */

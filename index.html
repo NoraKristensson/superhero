@@ -38,15 +38,13 @@
           type="button"
           class="btn btn-warning"
         >
-          find
+          Find
         </button>
       </div>
 
-      <div
-        class="card-container flex-wrap transform ease-in-out duration 300 hover:scale-110"
-      >
+      <div class="card-container flex-wrap">
         <div
-          class="card sm:w-1/2 md:w-1/3 xl:w-1/4 p-2 transform ease-in-out duration 300 hover:scale-110"
+          class="card border-secondary mb-3"
           style="width: 18rem;"
           v-for="item in superhero.results"
         >
@@ -57,18 +55,32 @@
           />
           <div class="card-body">
             <h5 class="card-title">
-              Superhero name: {{item.name}}
+              Superhero: {{item.name}}
             </h5>
-            <p class="card-text">Fullname: {{item.biography["full-name"]}}</p>
-            <p>
-              Aliases:
-              <span
-                v-for="(alias, index) in item.biography.aliases"
-                :key="index"
-                >{{ index > 0 ? `,`:``}}{{alias}}</span
-              >
-            </p>
 
+            <!-- -->
+            <div style="width: 100%;">
+              <p
+                class="alignment alignment--good"
+                v-if="item.biography.alignment==='good'"
+              >
+                What type: Hero
+              </p>
+              <p
+                v-else-if="item.biography.alignment==='bad'"
+                class="alignment alignment--bad"
+              >
+                What type: Villain
+              </p>
+              <p v-else class="alignment alignment--neutral">
+                What type: Neutral
+              </p>
+            </div>
+            <p>
+              {{item.name}} works as a {{item.work.occupation}} who lives in
+              {{item.work.base}}
+            </p>
+            <!--  -->
             <button
               v-on:click="getMoreInfo(item.id)"
               class="btn btn-info"
@@ -95,7 +107,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h4 class="modal-title" id="staticBackdropLabel">
-                Information about {{character.name}}
+                {{character.name}}
               </h4>
               <button
                 type="button"
@@ -107,14 +119,53 @@
               </button>
             </div>
             <div class="modal-body">
-              <!-- <p>{{character.id}}</p> -->
-              <p>fullname modal box: {{character.name}}</p>
-              <!-- <p>
-                Aliases:
-                <span v-for="(alias, index) in biography.aliases" :key="index"
-                  >{{ index > 0 ? `,`:``}}{{alias}}</span
-                >
-              </p> -->
+              <ul>
+                <li>
+                  <h6>
+                    Real name:
+                  </h6>
+                  <p>{{character["full-name"]}}</p>
+                </li>
+                <li>
+                  <h6>Aliases:</h6>
+                  <p>
+                    <span
+                      v-for="(alias, index) in character.aliases"
+                      :key="index"
+                      >{{ index > 0 ? `, `:`No alias`}}{{alias}}</span
+                    >
+                  </p>
+                </li>
+                <li>
+                  <h6>First appearances:</h6>
+                  <p>{{character["first-appearance"]}}</p>
+                </li>
+                <li>
+                  <h6>
+                    Alignment:
+                  </h6>
+                  <p v-if="character.alignment==='good'" style="color: green;">
+                    good
+                  </p>
+                  <p
+                    v-else-if="character.alignment==='bad'"
+                    style="color: red;"
+                  >
+                    bad
+                  </p>
+                  <p v-else style="color: yellow;">
+                    neutral
+                  </p>
+                </li>
+                <!-- <li>
+                  <h6>
+                    Alignment:
+                  </h6>
+                  <p>
+                    {{character.alignment}}
+                  </p>
+                </li> -->
+              </ul>
             </div>
             <div class="modal-footer">
               <button
