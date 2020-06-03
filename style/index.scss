@@ -15,6 +15,7 @@ body {
 
 .card-img-top {
   width: 50%;
+  width: 285px;
 }
 
 .container-xl {
@@ -50,7 +51,7 @@ input {
   @include flex(space-between, center);
 }
 .card {
-  margin: 30px auto;
+  margin: 30px auto !important;
   @include flex(center, center);
   padding-top: 10px;
   transition: 1s;
@@ -65,6 +66,11 @@ input {
   @include flex(space-around, center);
   flex-direction: column;
   //   overflow: scroll;
+}
+
+.img-container {
+  //   width: 18rem;
+  height: 200px;
 }
 
 .card-img-top {

@@ -4,6 +4,7 @@ body {
 
 .card-img-top {
   width: 50%;
+  width: 285px;
 }
 
 .container-xl {
@@ -54,7 +55,7 @@ input {
 }
 
 .card {
-  margin: 30px auto;
+  margin: 30px auto !important;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -88,6 +89,10 @@ input {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.img-container {
+  height: 200px;
 }
 
 .card-img-top {

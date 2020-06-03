@@ -48,11 +48,13 @@
           style="width: 18rem;"
           v-for="item in superhero.results"
         >
-          <img
-            class="card-img-top"
-            v-bind:src="item.image.url"
-            alt="Picture not found"
-          />
+          <div class="img-container">
+            <img
+              class="card-img-top"
+              v-bind:src="item.image.url"
+              alt="Picture not available"
+            />
+          </div>
           <div class="card-body">
             <h5 class="card-title">
               Superhero: {{item.name}}
