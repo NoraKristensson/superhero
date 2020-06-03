@@ -59,7 +59,7 @@
             </h5>
 
             <!-- -->
-            <div style="width: 100%;">
+            <div class="card-info">
               <p
                 class="alignment alignment--good"
                 v-if="item.biography.alignment==='good'"
@@ -75,12 +75,12 @@
               <p v-else class="alignment alignment--neutral">
                 What type: Neutral
               </p>
+
+              <p>
+                {{item.name}} works as a {{item.work.occupation}} who lives in
+                {{item.work.base}}
+              </p>
             </div>
-            <p>
-              {{item.name}} works as a {{item.work.occupation}} who lives in
-              {{item.work.base}}
-            </p>
-            <!--  -->
             <button
               v-on:click="getMoreInfo(item.id)"
               class="btn btn-info"
@@ -118,7 +118,11 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
+            <!-- v-if -->
+            <div
+              class="modal-body alignment alignment--good"
+              v-if="character.alignment==='good'"
+            >
               <ul>
                 <li>
                   <h6>
@@ -137,36 +141,80 @@
                   </p>
                 </li>
                 <li>
+                  <h6>Alter-egos:</h6>
+                  <p>{{character["alter-egos"]}}</p>
+                </li>
+                <li>
                   <h6>First appearances:</h6>
                   <p>{{character["first-appearance"]}}</p>
                 </li>
-                <li>
-                  <h6>
-                    Alignment:
-                  </h6>
-                  <p v-if="character.alignment==='good'" style="color: green;">
-                    good
-                  </p>
-                  <p
-                    v-else-if="character.alignment==='bad'"
-                    style="color: red;"
-                  >
-                    bad
-                  </p>
-                  <p v-else style="color: yellow;">
-                    neutral
-                  </p>
-                </li>
-                <!-- <li>
-                  <h6>
-                    Alignment:
-                  </h6>
-                  <p>
-                    {{character.alignment}}
-                  </p>
-                </li> -->
               </ul>
             </div>
+            <!--  -->
+            <div
+              class="modal-body alignment alignment--bad"
+              v-else-if="character.alignment==='bad'"
+            >
+              <ul>
+                <li>
+                  <h6>
+                    Real name:
+                  </h6>
+                  <p>{{character["full-name"]}}</p>
+                </li>
+                <li>
+                  <h6>Aliases:</h6>
+                  <p>
+                    <span
+                      v-for="(alias, index) in character.aliases"
+                      :key="index"
+                      >{{ index > 0 ? `, `:`No alias`}}{{alias}}</span
+                    >
+                  </p>
+                </li>
+                <li>
+                  <h6>Alter-egos:</h6>
+                  <p>{{character["alter-egos"]}}</p>
+                </li>
+                <li>
+                  <h6>First appearances:</h6>
+                  <p>{{character["first-appearance"]}}</p>
+                </li>
+              </ul>
+            </div>
+            <!--  -->
+            <div
+              class="modal-body alignment alignment--neutral"
+              v-else="character.alignment==='neutral'"
+            >
+              <ul>
+                <li>
+                  <h6>
+                    Real name:
+                  </h6>
+                  <p>{{character["full-name"]}}</p>
+                </li>
+                <li>
+                  <h6>Aliases:</h6>
+                  <p>
+                    <span
+                      v-for="(alias, index) in character.aliases"
+                      :key="index"
+                      >{{ index > 0 ? `, `:`No alias`}}{{alias}}</span
+                    >
+                  </p>
+                </li>
+                <li>
+                  <h6>Alter-egos:</h6>
+                  <p>{{character["alter-egos"]}}</p>
+                </li>
+                <li>
+                  <h6>First appearances:</h6>
+                  <p>{{character["first-appearance"]}}</p>
+                </li>
+              </ul>
+            </div>
+            <!-- footer -->
             <div class="modal-footer">
               <button
                 v-on:click="getMoreInfo()"

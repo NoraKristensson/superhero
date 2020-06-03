@@ -47,13 +47,15 @@ input {
 }
 
 .card-container {
-  @include just(space-between);
+  @include flex(space-between, center);
 }
 .card {
-  margin: 30px 0px;
+  margin: 30px auto;
   @include flex(center, center);
   padding-top: 10px;
   transition: 1s;
+  height: 600px;
+  //   overflow: scroll;
 }
 .card:hover {
   transform: scale(1.1);
@@ -62,6 +64,7 @@ input {
 .card-body {
   @include flex(space-around, center);
   flex-direction: column;
+  //   overflow: scroll;
 }
 
 .card-img-top {
@@ -70,6 +73,12 @@ input {
   margin-right: auto;
   width: 70%;
 }
+
+.card-info {
+  width: 100%;
+  overflow: scroll;
+}
+
 .alignment {
   text-align: center;
   letter-spacing: 2px;
@@ -93,11 +102,15 @@ input {
 .modal-footer {
   border: none;
 
-  @include just(center);
+  @include flex(center, center);
 }
 
 h6 {
   text-decoration: underline;
+}
+
+ul {
+  list-style: none;
 }
 
 // @include media-breakpoint-down(xs) { ... }
